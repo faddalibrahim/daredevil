@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.textColumn {
+  display: flex;
+  flex-flow: column;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 42px;
+  padding-top: 1.5rem;
+  /* flex: 3; */
+  color: #fae4ad;
+}
+
+.textColumn input {
+  width: 100%;
+  height: 50px;
+}
+
+
+.textColumn .radio_button input{
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  margin: 1rem;
+}
+
+
+
+.imageColumn {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  padding-top: 5rem;
+  /* flex: 2; */
+  opacity: 0.3;
+}
+
+img {
+  max-width: 100%;
+}
+
+
+.wrapper__roundButton {
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+}
+
+
+.challenge__container {
+  display: flex;
+  flex-flow: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.challenge__container__list{
+  display: flex;
+  flex-flow: column;
+  padding-bottom: 1rem;
+}
+
+.text__row {
+  display: flex;
+  flex-flow: column;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 62px;
+  padding-top: 1.5rem;
+  /* flex: 3; */
+  color: #fae4ad;
+
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .textColumn {
+    padding-top: 0;
+    padding-right: 2rem;
+  }
+
+  .imageColumn {
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .textColumn {
+    font-size: 20px;
+    line-height: 48px;
+  }
+}
