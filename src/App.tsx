@@ -1,23 +1,45 @@
-import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// libraries
+import { ChangeEvent } from "react";
 
-import PageNotFound from './pages/errors/not_found/PageNotFound'
-import Home from './pages/home/Home'
-import { CREATE, HOME } from './utils/routes';
+// components
+import Button from "@components/button/Button";
+import Input from "@components/input/Input";
+
+// styles
+import AppStyles from "./App.module.css";
 
 function App() {
-
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path={HOME} element={<Home />} />
-          {/* <Route path={CREATE} element={<Journey />} /> */}
-          <Route path={PageNotFound} element={<PageNotFound />} />
-        </Routes>
-      </Router>
-    </>
-  )
+    <div className={AppStyles.app}>
+      <Input
+        label="name"
+        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
+      />
+      <Input
+        type="radio"
+        label="banana"
+        name="same"
+        value="banana"
+        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
+      />
+      <Input
+        type="radio"
+        label="sausage"
+        name="same"
+        value="sausage"
+        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
+      />
+
+      <br />
+
+      <Button onClick={() => alert("hello world")}>solid button</Button>
+      <br />
+      <br />
+      <Button type="outlined" onClick={() => alert("hello world")}>
+        outlined button
+      </Button>
+    </div>
+  );
 }
 
-export default App
+export default App;
