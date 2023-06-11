@@ -1,43 +1,23 @@
-// libraries
-import { ChangeEvent } from "react";
-
-// components
-import Button from "@components/button/Button";
-import Input from "@components/input/Input";
+//libraries
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // styles
 import AppStyles from "./App.module.css";
 
+// component
+import PageNotFound from "./pages/errors/not_found/PageNotFound";
+import Home from "./pages/home/Home";
+import { HOME, PAGE_NOT_FOUND } from "./utils/routes";
+
 function App() {
   return (
     <div className={AppStyles.app}>
-      <Input
-        label="name"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
-      />
-      <Input
-        type="radio"
-        label="banana"
-        name="same"
-        value="banana"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
-      />
-      <Input
-        type="radio"
-        label="sausage"
-        name="same"
-        value="sausage"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => alert(e.target.value)}
-      />
-
-      <br />
-
-      <Button onClick={() => alert("hello world")}>solid button</Button>
-      <br />
-      <br />
-      <Button type="outlined" onClick={() => alert("hello world")}>
-        outlined button
-      </Button>
+       <Router>
+        <Routes>
+          <Route path={HOME} element={<Home />} />
+          <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
