@@ -2,8 +2,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #e0e0e0;
-    color: #000000;
+    color: var(--app-background-1);
     font-size: 24px;
     font-weight: bold;
     border: none;
@@ -11,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #BFF9E7;
+    background: var(--app-green);
 }
 
 .plus__icon {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './progress-bar.css';
+import BarStyles from './ProgressBar.module.css'
 
 interface ProgressBarProps {
   value: number;
@@ -11,8 +11,8 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ value }) => {
   };
 
   return (
-    <div className="progress-bar">
-      <div className="progress" style={progressStyle}></div>
+    <div className={BarStyles.progress__bar}>
+      <div className={BarStyles.progress} style={progressStyle}></div>
     </div>
   );
 };
