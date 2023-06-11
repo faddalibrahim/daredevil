@@ -1,5 +1,9 @@
 //libraries
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// libraries
+
+// components
+import Navbar from "@components/navbar/Navbar";
 
 // styles
 import AppStyles from "./App.module.css";
@@ -24,6 +28,7 @@ function App() {
 
         </Routes>
       </Router>
+      <Navbar />
     </div>
   );
 }
