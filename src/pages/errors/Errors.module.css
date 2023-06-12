@@ -6,6 +6,7 @@
   overflow: hidden;
   text-align: center;
   padding: 1rem;
+  background: var(--app-background-1);
 }
 
 .error__wrapper svg {
