@@ -8,7 +8,6 @@ import AppStyles from "./App.module.css";
 import PageNotFound from "@pages/errors/not_found/PageNotFound";
 import Homepage from "@pages/homepage/Homepage";
 import Protected from "@pages/protected/Protected";
-import Home from "@pages/home/Home";
 import Journey from "@pages/journeys/Journey";
 
 //constants
@@ -16,7 +15,6 @@ import {
   CREATE,
   DASHBOARD,
   HOMEPAGE,
-  HOME,
   PAGE_NOT_FOUND,
 } from "@utils/routes";
 
@@ -28,7 +26,7 @@ function App() {
           <Route path={HOMEPAGE} element={<Homepage />} />
           <Route path={DASHBOARD} element={<Protected />}>
             <Route path={CREATE} element={<Journey />} />
-            <Route path={HOME} element={<Home />} />
+            {/* <Route path={HOME} element={<Home />} /> */}
           </Route>
           <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />
         </Routes>
