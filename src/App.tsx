@@ -7,16 +7,16 @@ import AppStyles from "./App.module.css";
 // component
 import PageNotFound from "@pages/errors/not_found/PageNotFound";
 import Homepage from "@pages/homepage/Homepage";
+import Protected from "@pages/protected/Protected";
 import Journey from "@pages/journeys/Journey";
+
+//constants
 import {
-  CHALLENGE,
   CREATE,
   DASHBOARD,
   HOMEPAGE,
   PAGE_NOT_FOUND,
 } from "@utils/routes";
-import CustomChallenge from "@pages/challenge/CustomChllenge";
-import Protected from "@pages/protected/Protected";
 
 function App() {
   return (
@@ -26,7 +26,7 @@ function App() {
           <Route path={HOMEPAGE} element={<Homepage />} />
           <Route path={DASHBOARD} element={<Protected />}>
             <Route path={CREATE} element={<Journey />} />
-            <Route path={CHALLENGE} element={<CustomChallenge />} />
+            {/* <Route path={HOME} element={<Home />} /> */}
           </Route>
           <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />
         </Routes>

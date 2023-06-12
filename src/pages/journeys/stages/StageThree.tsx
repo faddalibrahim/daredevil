@@ -2,25 +2,29 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Component
-import RoundButton from "@components/round_button/RoundButton";
-import ProgressBar from "@components/progress_bar/ProgressBar";
-import ChallengeBox from "@components/challenge_box/ChallengeBox";
+import RoundButton from '@components/round_button/RoundButton';
+import ProgressBar from '@components/progress_bar/ProgressBar';
+import ChallengeBox from '@components/challenge_box/ChallengeBox';
+import { GoBack } from '@assets/icons/Icons';
+
 
 //Styles
 import StageStyles from "./Stage.module.css";
 
-const StageThree = ({ handleSubmit }) => {
-  const [progressVal] = useState(10);
-  const navigate = useNavigate();
+interface StageThreeProps {
+  handleSubmit: () => void;
+  handleGoBack: () => void;
+}
 
-  const addFreak = (): void => {
-    // Navigate to the challenge route or any other page
-    navigate("/challenge");
-  };
+const StageThree: React.FC<StageThreeProps> = ({ handleSubmit, handleGoBack }) => {
+  const [progressVal] = useState<number>(50);
 
   return (
     <>
       <div className={StageStyles.challenge__container}>
+      <div className={StageStyles.arrow} onClick={handleGoBack}>
+        &larr; Go Back
+      </div>
         <div className={StageStyles.text__row}>
           <small>
             select up to X challenges to include in your freak journey{" "}
@@ -35,7 +39,7 @@ const StageThree = ({ handleSubmit }) => {
           </div>
         </div>
         <div className={StageStyles.wrapper__roundButton}>
-          <RoundButton onClick={addFreak} />
+          <RoundButton onClick={handleSubmit} children = {<a title='add'>&#43;</a>} />
         </div>
       </div>
     </>
@@ -43,3 +47,7 @@ const StageThree = ({ handleSubmit }) => {
 };
 
 export default StageThree;
+
+
+
+

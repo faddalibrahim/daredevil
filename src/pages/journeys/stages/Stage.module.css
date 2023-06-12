@@ -26,6 +26,14 @@ img {
 
 .text__row {
   color: var(--app-yellow);
+  padding: 0 !important;
+  line-height: 4.5;
+}
+
+
+.arrow{
+  color: var(--app-green);
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -35,3 +43,4 @@ img {
     left: 0;
   }
 }
+

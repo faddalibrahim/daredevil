@@ -1,16 +1,26 @@
-import { useState, ChangeEvent } from "react";
-import Cover from "@assets/images/man-smiling-and-holding-smartphone.png";
-import StageStyles from "./Stage.module.css";
-import Input from "@components/input/Input";
-import Button from "@components/button/Button";
+import React, { useState, ChangeEvent } from 'react';
+import Cover from '@assets/images/man-smiling-and-holding-smartphone.png';
+import StageStyles from './Stage.module.css';
+import Input from '@components/input/Input';
+import Button from '@components/button/Button';
+import { GoBack } from '@assets/icons/Icons';
+import RoundButton from '@components/round_button/RoundButton';
+
 
 interface RadioOption {
   label: string;
   value: string;
 }
 
-const StageTwo = ({ handleSubmit }) => {
-  const [selectedOption, setSelectedOption] = useState<string>("");
+interface StageTwoProps {
+  handleSubmit: () => void;
+  handleGoBack: () => void;
+
+}
+
+const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
+  const [selectedOption, setSelectedOption] = useState<string>('');
+
 
   const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -22,9 +32,13 @@ const StageTwo = ({ handleSubmit }) => {
     { label: "month", value: "month" },
   ];
 
+
   return (
     <div className={StageStyles.container}>
       <div className={StageStyles.textColumn}>
+        <div className={StageStyles.arrow} onClick={handleGoBack}>
+          &larr; Go Back
+        </div>
         <h2>How long do you wanna go at it?</h2>
         <br />
         <div className={StageStyles.radio_button}>
@@ -43,6 +57,7 @@ const StageTwo = ({ handleSubmit }) => {
         <br />
         <Button onClick={handleSubmit}>Next</Button>
       </div>
+
       <div className={StageStyles.imageColumn}>
         <img src={Cover} alt="Stage One" />
       </div>

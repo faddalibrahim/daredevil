@@ -3,7 +3,12 @@ import Cover from "@assets/images/man-smiling-and-holding-smartphone.png";
 import Button from "@components/button/Button";
 import Input from "@components/input/Input";
 
-const StageOne = ({ handleSubmit }) => {
+interface StageOneProps {
+  handleSubmit: () => void;
+}
+
+const StageOne: React.FC<StageOneProps> = ({ handleSubmit }) => {
+
   return (
     <div className={StageStyles.container}>
       <div className={StageStyles.textColumn}>
