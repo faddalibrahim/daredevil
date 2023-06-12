@@ -3,6 +3,8 @@ import Cover from '@assets/images/man-smiling-and-holding-smartphone.png';
 import StageStyles from './Stage.module.css';
 import Input from '@components/input/Input';
 import Button from '@components/button/Button';
+import { GoBack } from '@assets/icons/Icons';
+import RoundButton from '@components/round_button/RoundButton';
 
 interface RadioOption {
   label: string;
@@ -11,9 +13,11 @@ interface RadioOption {
 
 interface StageTwoProps {
   handleSubmit: () => void;
+  handleGoBack: () => void;
+
 }
 
-const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit }) => {
+const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
   const [selectedOption, setSelectedOption] = useState<string>('');
 
   const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -25,6 +29,11 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit }) => {
     { label: 'fortnight', value: 'fortnight' },
     { label: 'month', value: 'month' },
   ];
+
+  const BtnStyles = {
+    width:'90%',
+    marginLeft:'1rem'
+  }
 
   return (
     <div className={StageStyles.container}>
@@ -43,8 +52,13 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit }) => {
             />
           ))}
         </div>
-        <Button onClick={handleSubmit}>Next</Button>
+        <div className={StageStyles.wrapper__roundButton__2}>
+          <RoundButton onClick={handleGoBack} children={<a title='back'><GoBack /></a>} />
+          <Button style= {BtnStyles} onClick={handleSubmit} children={<h3>Next</h3>}></Button>
+        </div>
+
       </div>
+
       <div className={StageStyles.imageColumn}>
         <img src={Cover} alt="Stage One" />
       </div>

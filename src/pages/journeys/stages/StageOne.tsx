@@ -8,7 +8,7 @@ interface StageOneProps {
   handleSubmit: () => void;
 }
 
-const StageOne: React.FC<StageOneProps> = ({ handleSubmit }) => {
+const StageOne: React.FC<StageOneProps> = ({ handleSubmit, handleGoBack }) => {
   return (
     <div className={StageStyles.container}>
       <div className={StageStyles.textColumn}>

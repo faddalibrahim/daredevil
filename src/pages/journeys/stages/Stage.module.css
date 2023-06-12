@@ -49,8 +49,20 @@ img {
 .wrapper__roundButton {
   width: 35%;
   display: flex;
-  justify-content: flex-end;
+  justify-content:space-between;
   align-items: end;
+}
+
+.wrapper__roundButton__2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper__roundButton__2 a{
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 

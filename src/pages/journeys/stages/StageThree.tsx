@@ -5,15 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import RoundButton from '@components/round_button/RoundButton';
 import ProgressBar from '@components/progress_bar/ProgressBar';
 import ChallengeBox from '@components/challenge_box/ChallengeBox';
+import { GoBack } from '@assets/icons/Icons';
 
 //Styles
 import StageStyles from './Stage.module.css';
 
 interface StageThreeProps {
   handleSubmit: () => void;
+  handleGoBack: () => VoidFunction;
 }
 
-const StageThree: React.FC<StageThreeProps> = ({ handleSubmit }) => {
+const StageThree: React.FC<StageThreeProps> = ({ handleSubmit, handleGoBack }) => {
   const [progressVal] = useState<number>(50);
   const navigate = useNavigate();
 
@@ -37,7 +39,8 @@ const StageThree: React.FC<StageThreeProps> = ({ handleSubmit }) => {
           </div>
         </div>
         <div className={StageStyles.wrapper__roundButton}>
-          <RoundButton onClick={addFreak} />
+          <RoundButton onClick={handleGoBack} children = {<a title='back'><GoBack /></a>} />
+          <RoundButton onClick={addFreak} children = {<a title='add'>&#43;</a>} />
         </div>
       </div>
     </>
