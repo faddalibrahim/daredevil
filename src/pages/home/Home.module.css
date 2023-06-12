@@ -48,8 +48,8 @@
         margin: 2rem;
     }
 
-    .home__wrapper__text,
     .home__wrapper__image {
-        flex-basis: 50%;
+        flex-basis: 25%;
+        padding: 0;
     }
 }
