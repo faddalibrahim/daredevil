@@ -5,8 +5,8 @@ import Input from '@components/input/Input';
 import Button from '@components/button/Button';
 
 //styles
-import StageStyles from './Stage.module.css';
 import { titleInputStyle, descriptionInputStyle, buttonStyle } from '@utils/constants';
+import GoBack from './GoBack';
 
 
 interface StageFourProps {
@@ -34,9 +34,7 @@ const StageFour: React.FC<StageFourProps> = ({ handleGoBack })=> {
 
   return (
     <main>
-      <div className={StageStyles.arrow} onClick={handleGoBack}>
-        &larr; Go Back
-      </div>
+      <GoBack handleGoBack={handleGoBack} />
       <Input
         name="title"
         value={title}

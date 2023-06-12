@@ -3,8 +3,7 @@ import Cover from '@assets/images/man-smiling-and-holding-smartphone.png';
 import StageStyles from './Stage.module.css';
 import Input from '@components/input/Input';
 import Button from '@components/button/Button';
-import { GoBack } from '@assets/icons/Icons';
-import RoundButton from '@components/round_button/RoundButton';
+import GoBack from './GoBack';
 
 
 interface RadioOption {
@@ -36,9 +35,7 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
   return (
     <div className={StageStyles.container}>
       <div className={StageStyles.textColumn}>
-        <div className={StageStyles.arrow} onClick={handleGoBack}>
-          &larr; Go Back
-        </div>
+      <GoBack handleGoBack={handleGoBack} />
         <h2>How long do you wanna go at it?</h2>
         <br />
         <div className={StageStyles.radio_button}>
