@@ -11,12 +11,7 @@ import Protected from "@pages/protected/Protected";
 import Journey from "@pages/journeys/Journey";
 
 //constants
-import {
-  CREATE,
-  DASHBOARD,
-  HOMEPAGE,
-  PAGE_NOT_FOUND,
-} from "@utils/routes";
+import { CREATE, DASHBOARD, HOMEPAGE, PAGE_NOT_FOUND } from "@utils/routes";
 
 function App() {
   return (
