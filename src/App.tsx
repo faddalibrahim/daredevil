@@ -27,27 +27,30 @@ import {
   JOURNEYS,
 } from "@utils/routes";
 
+import { AuthProvider } from "@contexts/AuthContext";
 function App() {
   return (
-    <div className={AppStyles.app}>
-      <Router>
-        <Routes>
-          <Route path={HOMEPAGE} element={<Homepage />} />
-          <Route path={DASHBOARD} element={<Protected />}>
-            <Route path={HOME} element={<Home />} />
-            <Route path={JOURNEYS} element={<Journeys />} />
-            <Route path={FREAKPOOL} element={<Freakpool />} />
-            <Route path={PROFILE} element={<Profile />} />
-            <Route path={SETTINGS} element={<Settings />} />
-            <Route
-              path={CREATE_FREAK_JOURNEY}
-              element={<CreateFreakJourney />}
-            />
-          </Route>
-          <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />
-        </Routes>
-      </Router>
-    </div>
+    <AuthProvider>
+      <div className={AppStyles.app}>
+        <Router>
+          <Routes>
+            <Route path={HOMEPAGE} element={<Homepage />} />
+            <Route path={DASHBOARD} element={<Protected />}>
+              <Route path={HOME} element={<Home />} />
+              <Route path={JOURNEYS} element={<Journeys />} />
+              <Route path={FREAKPOOL} element={<Freakpool />} />
+              <Route path={PROFILE} element={<Profile />} />
+              <Route path={SETTINGS} element={<Settings />} />
+              <Route
+                path={CREATE_FREAK_JOURNEY}
+                element={<CreateFreakJourney />}
+              />
+            </Route>
+            <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />
+          </Routes>
+        </Router>
+      </div>
+    </AuthProvider>
   );
 }
 export default App;
