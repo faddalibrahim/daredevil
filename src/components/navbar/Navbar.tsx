@@ -1,3 +1,6 @@
+// libraries
+import { NavLink } from "react-router-dom";
+
 //components
 import { Logo } from "@assets/icons/Icons";
 
@@ -15,16 +18,14 @@ const Navbar = () => {
       <div className={NavbarStyles.navbar__menu}>
         {PAGES.map((page, index) => (
           <div className={NavbarStyles.navbar__menu__item} key={index}>
-            {/* <NavLink to={page.path}> */}
-            <a href={page.path}>
+            <NavLink to={page.path}>
               <div className={NavbarStyles.navbar__menu__item__icon}>
                 {page.icon}
               </div>
               <small className={NavbarStyles.navbar__menu__item__text}>
                 {page.name}
               </small>
-            </a>
-            {/* </NavLink> */}
+            </NavLink>
           </div>
         ))}
       </div>
