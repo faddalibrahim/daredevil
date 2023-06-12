@@ -1,10 +1,21 @@
 import React, { ChangeEvent, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Input from '@components/input/Input';
-import ChallengeStyles from './Custom.module.css';
-import Button from '../../components/button/Button';
 
-const CustomChallenge: React.FC = () => {
+//components
+import Input from '@components/input/Input';
+import Button from '@components/button/Button';
+
+//styles
+import StageStyles from './Stage.module.css';
+import { titleInputStyle, descriptionInputStyle, buttonStyle } from '@utils/constants';
+
+
+interface StageFourProps {
+    handleGoBack: () => void;
+    
+  }
+
+const StageFour: React.FC<StageFourProps> = ({ handleGoBack })=> {
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -16,40 +27,14 @@ const CustomChallenge: React.FC = () => {
     setDescription(event.target.value);
   };
 
-  const titleInputStyle = {
-    width: '40rem',
-  };
 
-  const descriptionInputStyle = {
-    display: 'flex',
-    boxSizing: 'border-box',
-    background: '#1E1E1E',
-    width: '40rem',
-    height: '10rem',
-    input: {
-      height: '10rem',
-    },
-  };
-
-  const buttonStyle = {
-    width: '40rem',
-    background: 'var(--app-green)',
-    marginTop: '1rem',
-  };
-
-  const navigate = useNavigate();
-
-  const handleGoBack = () => {
-    navigate(-1); // Go back to the previous page
-  };
-
-  function handleSubmit(): void {
+  const handleSubmit = () => {
     throw new Error('Function not implemented.');
   }
 
   return (
-    <div className={ChallengeStyles.challenge__wrapper}>
-      <div className={ChallengeStyles.arrow} onClick={handleGoBack}>
+    <main>
+      <div className={StageStyles.arrow} onClick={handleGoBack}>
         &larr; Go Back
       </div>
       <Input
@@ -72,8 +57,8 @@ const CustomChallenge: React.FC = () => {
         type={''}
         style={buttonStyle}
       ></Button>
-    </div>
+    </main>
   );
 };
 
-export default CustomChallenge;
+export default StageFour;

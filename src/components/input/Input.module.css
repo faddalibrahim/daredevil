@@ -2,8 +2,7 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 0.5rem;
-  align-items: flex-start;
+  width: min-content;
 }
 
 .wrapper label {
@@ -19,6 +18,9 @@
 }
 
 /* TEXT */
+.input[type="text"] {
+  border-bottom: 0.1rem solid transparent;
+}
 .input[type="text"]:focus {
   border-bottom: 0.1rem solid var(--app-green);
 }
