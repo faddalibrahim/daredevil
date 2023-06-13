@@ -1,0 +1,40 @@
+/* Home.module.css */
+
+.home__container {
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .home__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .home__journey {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home__journey h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    
+  }
+  
+  .home__journey p {
+    margin-bottom: 5px;
+    color: black;
+
+  }
+  
+  .home__journey p:first-child {
+    margin-top: 0;
+  }
+  
+  .home__journey p:last-child {
+    margin-bottom: 0;
+  }
+  

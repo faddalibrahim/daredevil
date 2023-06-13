@@ -14,6 +14,11 @@ import Darepool from "@pages/protected/darepool/Darepool";
 import Profile from "@pages/protected/profile/Profile";
 import Journeys from "@pages/protected/journeys/Journeys";
 import Settings from "@pages/protected/settings/Settings";
+import Login from "@pages/auth/login/Login";
+import JourneyDetails from "@pages/protected/journeys/JourneyDetails";
+
+
+
 //constants
 import {
   CREATE_DARE_JOURNEY,
@@ -25,9 +30,14 @@ import {
   PROFILE,
   DAREPOOL,
   JOURNEYS,
+  CHALLENGE,
+  LOGIN,
+  JOURNEYDETAILS,
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
+import CustomChallenge from "./pages/protected/custom_challenge/CustomChallenge";
+
 function App() {
   return (
     <AuthProvider>
@@ -35,9 +45,12 @@ function App() {
         <Router>
           <Routes>
             <Route path={HOMEPAGE} element={<Homepage />} />
+            <Route path={LOGIN} element={<Login />} />
             <Route path={DASHBOARD} element={<Protected />}>
               <Route path={HOME} element={<Home />} />
               <Route path={JOURNEYS} element={<Journeys />} />
+              <Route path={JOURNEYDETAILS} element={<JourneyDetails />} />
+              <Route path={CHALLENGE} element={<CustomChallenge />} />
               <Route path={DAREPOOL} element={<Darepool />} />
               <Route path={PROFILE} element={<Profile />} />
               <Route path={SETTINGS} element={<Settings />} />
