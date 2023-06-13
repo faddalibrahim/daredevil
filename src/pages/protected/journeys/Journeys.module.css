@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.metric {
+    text-align: center;
+}
+
+.metricValue {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.metricLabel {
+    font-size: 16px;
+    color: white;
+}
+
+.journey {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightblue;
+    cursor: pointer;
+}
