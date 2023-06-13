@@ -1,10 +1,18 @@
-//libraries
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode, Dispatch, SetStateAction } from "react";
 
-const AuthContext = createContext({});
+interface AuthContextProps {
+  auth?: User;
+  setAuth: Dispatch<SetStateAction<User | undefined>>;
+}
 
-export const AuthProvider = ({ children }) => {
-  const [auth, setAuth] = useState("auth setup works");
+const AuthContext = createContext<AuthContextProps | undefined>(undefined);
+
+interface AuthProviderProps {
+  children: ReactNode;
+}
+
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  const [auth, setAuth] = useState<User | undefined>(undefined);
 
   return (
     <AuthContext.Provider value={{ auth, setAuth }}>
