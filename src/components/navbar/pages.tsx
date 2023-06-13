@@ -18,8 +18,8 @@ export const PAGES = [
     icon: <TasksIcon />,
   },
   {
-    name: "freakpool",
-    path: "freakpool",
+    name: "darepool",
+    path: "darepool",
     icon: <BoltIcon />,
   },
   {

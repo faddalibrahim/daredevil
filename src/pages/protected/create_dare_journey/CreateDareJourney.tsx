@@ -9,10 +9,10 @@ import StageThree from "./stages/StageThree";
 import StageTwo from "./stages/StageTwo";
 
 // styles
-import CreateFreakJourneyStyles from "./CreateFreakJourney.module.css";
+import CreateDareJourneyStyles from "./CreateDareJourney.module.css";
 import StageFour from "./stages/StageFour";
 
-const CreateFreakJourney: React.FC = () => {
+const CreateDareJourney: React.FC = () => {
   const [stage, setStage] = useState<number>(1);
   const navigate = useNavigate();
 
@@ -61,11 +61,11 @@ const CreateFreakJourney: React.FC = () => {
   };
 
   return (
-    <main className={CreateFreakJourneyStyles.journeys}>
+    <main className={CreateDareJourneyStyles.journeys}>
       <StageCircle stage={stage} />
       <section>{renderStage()}</section>
     </main>
   );
 };
 
-export default CreateFreakJourney;
+export default CreateDareJourney;
