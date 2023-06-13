@@ -1,6 +1,5 @@
 // libraries
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 //components
 import StageCircle from "@components/stage_circle/StageCircle";
@@ -14,7 +13,6 @@ import StageFour from "./stages/StageFour";
 
 const CreateFreakJourney: React.FC = () => {
   const [stage, setStage] = useState<number>(1);
-  const navigate = useNavigate();
 
   const handleSubmit = (): void => {
     if (stage === 0) {
@@ -34,7 +32,6 @@ const CreateFreakJourney: React.FC = () => {
   const handleGoBack = (): void => {
     setStage((prevStage) => prevStage - 1); // Reduce the stage by one
     // TODO: Additional logic if needed before navigating back
-    // navigate(-1); // Go back to the previous page
   };
 
   const renderStage = () => {

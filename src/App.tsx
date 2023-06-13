@@ -14,6 +14,9 @@ import Freakpool from "@pages/protected/freakpool/Freakpool";
 import Profile from "@pages/protected/profile/Profile";
 import Journeys from "@pages/protected/journeys/Journeys";
 import Settings from "@pages/protected/settings/Settings";
+import CustomChallenge from "@pages/protected/custom_challenge/tomChallenge";
+
+
 //constants
 import {
   CREATE_FREAK_JOURNEY,
@@ -25,9 +28,11 @@ import {
   PROFILE,
   FREAKPOOL,
   JOURNEYS,
+  CHALLENGE,
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
+
 function App() {
   return (
     <AuthProvider>
@@ -38,6 +43,7 @@ function App() {
             <Route path={DASHBOARD} element={<Protected />}>
               <Route path={HOME} element={<Home />} />
               <Route path={JOURNEYS} element={<Journeys />} />
+              <Route path={CHALLENGE} element={<CustomChallenge />} />
               <Route path={FREAKPOOL} element={<Freakpool />} />
               <Route path={PROFILE} element={<Profile />} />
               <Route path={SETTINGS} element={<Settings />} />
