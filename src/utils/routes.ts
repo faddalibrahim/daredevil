@@ -1,5 +1,6 @@
 export const HOMEPAGE = "/";
 export const PAGE_NOT_FOUND = "*";
+export const LOGIN = "login";
 
 // PROTECTED ROUTES
 export const DASHBOARD = `${HOMEPAGE}dashboard`;

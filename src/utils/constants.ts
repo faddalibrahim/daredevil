@@ -1,5 +1,6 @@
 export const CONSTANT = "constant";
 
+export const API_URL = "http://localhost:3000";
 
 export const titleInputStyle = {
     width: '40rem',

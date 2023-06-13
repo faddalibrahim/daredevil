@@ -15,6 +15,7 @@ import Profile from "@pages/protected/profile/Profile";
 import Journeys from "@pages/protected/journeys/Journeys";
 import Settings from "@pages/protected/settings/Settings";
 import CustomChallenge from "@pages/protected/custom_challenge/tomChallenge";
+import Login from "@pages/auth/login/Login";
 
 
 //constants
@@ -29,6 +30,7 @@ import {
   FREAKPOOL,
   JOURNEYS,
   CHALLENGE,
+  LOGIN,
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
@@ -40,6 +42,7 @@ function App() {
         <Router>
           <Routes>
             <Route path={HOMEPAGE} element={<Homepage />} />
+            <Route path={LOGIN} element={<Login />} />
             <Route path={DASHBOARD} element={<Protected />}>
               <Route path={HOME} element={<Home />} />
               <Route path={JOURNEYS} element={<Journeys />} />

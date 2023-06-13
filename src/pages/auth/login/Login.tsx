@@ -4,38 +4,37 @@ import axios, { AxiosResponse } from "axios";
 
 
 import useAuth from "@hooks/useAuth";
+import { API_URL } from "@utils/constants";
+import Input from "@components/input/Input";
+import Button from "@components/button/Button";
 
 interface LoginResponse {
   status: number;
-  data: UserData;
-}
-
-interface UserData {
-  // Define the structure of your user data here
+  data: User;
 }
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const { setAuth } = useAuth()
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
   const [error, setError] = useState("");
 
+  // TO REPLACE WITH GOOGLE OAUTH CLIENT LOGIC
   const handleLogin = async () => {
     try {
-      const response: AxiosResponse<LoginResponse> = await axios.post("/login", {
+      const response: AxiosResponse<LoginResponse> = await axios.get(`${API_URL}/users/1`, {
         email,
-        password,
       });
 
       if (response.status === 200) {
-        const userData = response.data.data;
-
+        const userData = response.data;
+        console.log(userData)
         setAuth(userData);
+        navigate("/dashboard/home");
 
-        navigate("/dashboard");
       } else {
-        setError("Invalid email or password");
+        setError("Invalid email");
       }
     } catch (error) {
       setError("An error occurred during login");
@@ -47,27 +46,20 @@ const Login: React.FC = () => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
+
 
   return (
     <div>
       <h1>Login</h1>
       {error && <p>{error}</p>}
-      <input
+      <Input
         type="text"
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}
       />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={handlePasswordChange}
-      />
-      <button onClick={handleLogin}>Login</button>
+
+      <Button onClick={handleLogin}>Login</Button>
     </div>
   );
 };

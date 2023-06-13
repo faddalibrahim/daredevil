@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 //components
 import Button from "@components/button/Button";
 import Cover from "@assets/images/man-standing-with-hands-in-pockets.png";
+import useAuth from "@hooks/useAuth";
 
 //style
 import HomeStyles from "./Home.module.css";
 
 const Home = () => {
   const navigate = useNavigate();
+  const {auth} = useAuth()
+
   const buttonStyle = {
     marginBottom: "1rem",
   };
@@ -22,7 +25,7 @@ const Home = () => {
       <div className={HomeStyles.home__wrapper}>
         <section className={HomeStyles.home__wrapper__text}>
           <h2>
-            Welcome, <span>Fred</span>
+            Welcome, <span>{auth.name}</span>
           </h2>
           <p>umm, it seems you haven't created a freak journey yet</p>
           <br />
