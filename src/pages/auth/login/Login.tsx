@@ -1,7 +1,9 @@
-import React, { useContext, useState, ChangeEvent } from "react";
-import { useHistory } from "react-router-dom";
+import React, {useState, ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
-import AuthContext from "./AuthContext";
+
+
+import useAuth from "@hooks/useAuth";
 
 interface LoginResponse {
   status: number;
@@ -13,8 +15,8 @@ interface UserData {
 }
 
 const Login: React.FC = () => {
-  const history = useHistory();
-  const { setAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { setAuth } = useAuth()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -31,7 +33,7 @@ const Login: React.FC = () => {
 
         setAuth(userData);
 
-        history.push("/dashboard");
+        navigate("/dashboard");
       } else {
         setError("Invalid email or password");
       }
