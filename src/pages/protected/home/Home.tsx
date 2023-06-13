@@ -14,7 +14,7 @@ const Home = () => {
   };
 
   const handleClick = () => {
-    navigate("/dashboard/create-freak-journey");
+    navigate("/dashboard/create-dare-journey");
   };
 
   return (
@@ -24,16 +24,21 @@ const Home = () => {
           <h2>
             Welcome, <span>Fred</span>
           </h2>
-          <p>umm, it seems you haven't created a freak journey yet</p>
+          <p>
+            umm, it seems you haven't created a{" "}
+            <span style={{ color: "var(--app-yellow)" }}>dare journey</span> yet
+          </p>
           <br />
           <Button
             style={buttonStyle}
-            children={<p>create freak journey</p>}
+            children={<p>create dare journey</p>}
             type={"solid"}
             onClick={handleClick}
           />{" "}
           <br />
-          <a href="">what's a freak journey?</a>
+          <a href="" style={{ color: "var(--app-yellow)" }}>
+            what's a dare journey?
+          </a>
         </section>
         <section className={HomeStyles.home__wrapper__image}>
           <img src={Cover} alt="Stage One" />
