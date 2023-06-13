@@ -46,27 +46,7 @@
       "joined_at": "2022-01-01"
     }
   ],
-  "journey_freaks": [
-    {
-      "id": 1,
-      "freak_id": 1,
-      "milestone": "passed",
-      "rating": 5
-    },
-    {
-      "id": 2,
-      "freak_id": 2,
-      "milestone": "aborted",
-      "rating": 10
-    },
-    {
-      "id": 3,
-      "freak_id": 3,
-      "milestone": "missed",
-      "rating": 6
-      
-    }
-  ],
+  
   "freakpool": [
     {
       "id": 1,
@@ -111,26 +91,6 @@
       "shared_experiences": [],
       "created_at": "2022-01-01",
       "created_by": 1
-    }
-  ],
-  "shared_experiences": [
-    {
-      "id": 1,
-      "user_id": 1,
-      "content": "Shared Experience 1",
-      "date_created": "2022-01-02"
-    },
-    {
-      "id": 2,
-      "user_id": 1,
-      "content": "Shared Experience 2",
-      "date_created": "2022-01-03"
-    },
-    {
-      "id": 3,
-      "user_id": 1,
-      "content": "Shared Experience 3",
-      "date_created": "2022-01-04"
     }
   ]
 }
