@@ -1,51 +1,11 @@
-import { useNavigate } from "react-router-dom";
-
 //components
-import Button from "@components/button/Button";
-import Cover from "@assets/images/man-standing-with-hands-in-pockets.png";
-
-//style
-import HomeStyles from "./Home.module.css";
+import NoOngoingJourney from "./no_ongoing_journey/NoOngoingJourney";
+import OnGoingJourney from "./ongoing_journey/OnGoingJourney";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const buttonStyle = {
-    marginBottom: "1rem",
-  };
+  const userHasOngoingJourney = true;
 
-  const handleClick = () => {
-    navigate("/dashboard/create-dare-journey");
-  };
-
-  return (
-    <main className={HomeStyles.home__container}>
-      <div className={HomeStyles.home__wrapper}>
-        <section className={HomeStyles.home__wrapper__text}>
-          <h2>
-            Welcome, <span>Fred</span>
-          </h2>
-          <p>
-            umm, it seems you haven't created a{" "}
-            <span style={{ color: "var(--app-yellow)" }}>dare journey</span> yet
-          </p>
-          <br />
-          <Button
-            style={buttonStyle}
-            children={<p>create dare journey</p>}
-            type={"solid"}
-            onClick={handleClick}
-          />{" "}
-          <br />
-          <a href="" style={{ color: "var(--app-yellow)" }}>
-            what's a dare journey?
-          </a>
-        </section>
-        <section className={HomeStyles.home__wrapper__image}>
-          <img src={Cover} alt="Stage One" />
-        </section>
-      </div>
-    </main>
-  );
+  return userHasOngoingJourney ? <OnGoingJourney /> : <NoOngoingJourney />;
 };
 
 export default Home;
