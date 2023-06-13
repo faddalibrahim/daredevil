@@ -52,12 +52,12 @@ const Login: React.FC = () => {
     <div>
       <h1>Login</h1>
       {error && <p>{error}</p>}
-      <Input
+      {/* <Input
         type="text"
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}
-      />
+      /> */}
 
       <Button onClick={handleLogin}>Login</Button>
     </div>
