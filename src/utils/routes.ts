@@ -10,4 +10,5 @@ export const HOME = `${DASHBOARD}${HOMEPAGE}home`;
 export const PROFILE = "profile";
 export const SETTINGS = "settings";
 export const JOURNEYS = "journeys";
+export const JOURNEYDETAILS = '/dashboard/journeys/:id'
 export const FREAKPOOL = "freakpool";

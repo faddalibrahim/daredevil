@@ -16,6 +16,8 @@ import Journeys from "@pages/protected/journeys/Journeys";
 import Settings from "@pages/protected/settings/Settings";
 import CustomChallenge from "@pages/protected/custom_challenge/tomChallenge";
 import Login from "@pages/auth/login/Login";
+import JourneyDetails from "@pages/protected/journeys/JourneyDetails";
+
 
 
 //constants
@@ -31,6 +33,7 @@ import {
   JOURNEYS,
   CHALLENGE,
   LOGIN,
+  JOURNEYDETAILS,
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
@@ -46,6 +49,7 @@ function App() {
             <Route path={DASHBOARD} element={<Protected />}>
               <Route path={HOME} element={<Home />} />
               <Route path={JOURNEYS} element={<Journeys />} />
+              <Route path={JOURNEYDETAILS} element={<JourneyDetails />} />
               <Route path={CHALLENGE} element={<CustomChallenge />} />
               <Route path={FREAKPOOL} element={<Freakpool />} />
               <Route path={PROFILE} element={<Profile />} />
