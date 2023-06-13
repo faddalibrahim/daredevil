@@ -9,12 +9,11 @@ import PageNotFound from "@pages/errors/not_found/PageNotFound";
 import Homepage from "@pages/homepage/Homepage";
 import Protected from "@pages/protected/Protected";
 import Home from "@pages/protected/home/Home";
-import CreateFreakJourney from "@pages/protected/create_freak_journey/CreateFreakJourney";
-import Freakpool from "@pages/protected/freakpool/Freakpool";
+import CreateDareJourney from "@pages/protected/create_dare_journey/CreateDareJourney";
+import Darepool from "@pages/protected/darepool/Darepool";
 import Profile from "@pages/protected/profile/Profile";
 import Journeys from "@pages/protected/journeys/Journeys";
 import Settings from "@pages/protected/settings/Settings";
-import CustomChallenge from "@pages/protected/custom_challenge/tomChallenge";
 import Login from "@pages/auth/login/Login";
 import JourneyDetails from "@pages/protected/journeys/JourneyDetails";
 
@@ -22,14 +21,14 @@ import JourneyDetails from "@pages/protected/journeys/JourneyDetails";
 
 //constants
 import {
-  CREATE_FREAK_JOURNEY,
+  CREATE_DARE_JOURNEY,
   DASHBOARD,
   HOMEPAGE,
   HOME,
   PAGE_NOT_FOUND,
   SETTINGS,
   PROFILE,
-  FREAKPOOL,
+  DAREPOOL,
   JOURNEYS,
   CHALLENGE,
   LOGIN,
@@ -37,6 +36,7 @@ import {
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
+import CustomChallenge from "./pages/protected/custom_challenge/CustomChallenge";
 
 function App() {
   return (
@@ -51,12 +51,12 @@ function App() {
               <Route path={JOURNEYS} element={<Journeys />} />
               <Route path={JOURNEYDETAILS} element={<JourneyDetails />} />
               <Route path={CHALLENGE} element={<CustomChallenge />} />
-              <Route path={FREAKPOOL} element={<Freakpool />} />
+              <Route path={DAREPOOL} element={<Darepool />} />
               <Route path={PROFILE} element={<Profile />} />
               <Route path={SETTINGS} element={<Settings />} />
               <Route
-                path={CREATE_FREAK_JOURNEY}
-                element={<CreateFreakJourney />}
+                path={CREATE_DARE_JOURNEY}
+                element={<CreateDareJourney />}
               />
             </Route>
             <Route path={PAGE_NOT_FOUND} element={<PageNotFound />} />

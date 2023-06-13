@@ -8,7 +8,7 @@ import Button from '@components/button/Button';
 // Styles
 import ChallengeStyles from './Custom.module.css';
 import { titleInputStyle, descriptionInputStyle, buttonStyle } from '@utils/constants';
-import GoBack from '../create_freak_journey/stages/GoBack';
+import GoBack from '../create_dare_journey/stages/GoBack';
 
 
 const CustomChallenge: React.FC = () => {
