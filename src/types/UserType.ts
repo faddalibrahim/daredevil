@@ -23,3 +23,16 @@ type User = {
     milestone: 'passed' | 'aborted' | 'missed';
   };
   
+
+
+type JourneyMetricsType = {
+    name:string;
+    journeyId: string;
+    swapsMade: number;
+    milestone: 'completed' | 'abandoned';
+    passedFreaks: number;
+    abortedFreaks: number;
+    missedFreaks: number;
+    timeLeftFormatted: string;
+  };
+  

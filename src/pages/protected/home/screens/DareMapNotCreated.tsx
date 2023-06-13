@@ -6,8 +6,7 @@ import Cover from "@assets/images/man-standing-with-hands-in-pockets.png";
 import useAuth from "@hooks/useAuth";
 
 //style
-import HomeStyles from "./Home.module.css";
-import DareCreatedScreen from "./screens/DareMapCreated";
+import HomeStyles from "../Home.module.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -22,8 +21,8 @@ const Home = () => {
   };
 
   return (
-    <main >
-      {/* <div className={HomeStyles.home__wrapper}>
+    <main className={HomeStyles.home__container}>
+      <div className={HomeStyles.home__wrapper}>
         <section className={HomeStyles.home__wrapper__text}>
           <h2>
             Welcome, <span>{auth.name}</span>
@@ -42,8 +41,7 @@ const Home = () => {
         <section className={HomeStyles.home__wrapper__image}>
           <img src={Cover} alt="Stage One" />
         </section>
-      </div> */}
-      <DareCreatedScreen />
+      </div>
     </main>
   );
 };
