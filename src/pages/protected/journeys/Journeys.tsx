@@ -31,8 +31,6 @@ const Journeys: React.FC<JourneysProps> = () => {
                 chunk={completedJourneys.length}
                 total={auth.journeys.length}
                 label="Completed"
-                arcColor="var(--app-green)"
-                bgColor="rgb(191 249 231 / 0.1)"
               />
             </div>
           </div>
@@ -44,8 +42,6 @@ const Journeys: React.FC<JourneysProps> = () => {
                 chunk={abandonedJourneys.length}
                 total={auth.journeys.length}
                 label="Abandoned"
-                arcColor="var(--app-orange)"
-                bgColor="rgb(244 152 103 / 0.1)"
               />
             </div>
           </div>
@@ -65,7 +61,19 @@ const Journeys: React.FC<JourneysProps> = () => {
               }`,
             }}
           >
-            {journey.name}
+            <h2>{journey.name}</h2>
+            <br />
+            <small
+              style={{
+                color: `${
+                  journey.milestone === "completed"
+                    ? "var(--app-green)"
+                    : "var(--app-orange)"
+                }`,
+              }}
+            >
+              {journey.milestone}
+            </small>
           </div>
         ))}
       </div>
