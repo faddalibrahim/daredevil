@@ -2,14 +2,14 @@ import { Client, Account, ID } from "appwrite";
 import APPWRITE_SERVER from "./server";
 
 const AW_API = {
-  provider() {
+  init() {
     return new Client()
       .setEndpoint(APPWRITE_SERVER.endpoint)
       .setProject(APPWRITE_SERVER.projectId);
   },
 
   createAccount() {
-    return new Account(this.provider()).createOAuth2Session("google");
+    return new Account(this.init()).createOAuth2Session("google");
   },
 };
 
