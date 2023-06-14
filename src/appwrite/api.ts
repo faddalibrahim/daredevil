@@ -9,7 +9,7 @@ const AW_API = {
   },
 
   createAccount() {
-    return new Account(this.init()).createOAuth2Session("google");
+    return new Account(this.init()).createOAuth2Session("google", 'http://localhost:5173/dashboard/home', 'http://localhost:5173/login');
   },
 };
 
