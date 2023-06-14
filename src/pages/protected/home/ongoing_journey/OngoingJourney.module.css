@@ -53,6 +53,18 @@
   z-index: 99;
 }
 
+.mission_content {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  gap: 0.2rem;
+}
+
+.mission_stats {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* timer and action buttons */
 
 .timer_action_buttons {
