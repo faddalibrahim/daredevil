@@ -4,6 +4,8 @@ import {
   BoltIcon,
   ProfileIcon,
   GearIcon,
+  LogoutIcon,
+  MoreIcon,
 } from "@assets/icons/Icons";
 
 export const PAGES = [
@@ -28,8 +30,21 @@ export const PAGES = [
     icon: <ProfileIcon />,
   },
   {
+    name: "more",
+    path: "more",
+    icon: <MoreIcon />,
+  },
+];
+
+export const EXTRA_MENU = [
+  {
     name: "settings",
     path: "settings",
     icon: <GearIcon />,
+  },
+  {
+    name: "logout",
+    path: "logout",
+    icon: <LogoutIcon />,
   },
 ];

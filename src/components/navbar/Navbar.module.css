@@ -56,6 +56,11 @@
   stroke: var(--app-green);
 }
 
+.extra__menu {
+  display: none;
+  flex-grow: 1;
+}
+
 @media screen and (min-width: 768px) {
   .navbar {
     width: 16vw;
@@ -63,14 +68,14 @@
     display: flex;
     flex-flow: column;
     padding: 1rem;
-    gap: 1.5rem;
+    gap: 4rem;
   }
   .navbar__menu {
     flex-flow: column;
     align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
-    flex-grow: 1;
+    flex-grow: 4;
   }
 
   .navbar__menu__item {
@@ -98,5 +103,13 @@
 
   .navbar__logo path {
     fill: var(--app-green);
+  }
+
+  .navbar__menu .navbar__menu__item:last-child {
+    display: none;
+  }
+
+  .extra__menu {
+    display: block;
   }
 }
