@@ -6,6 +6,7 @@ import axios, { AxiosResponse } from "axios";
 import useAuth from "@hooks/useAuth";
 import { API_URL } from "@utils/constants";
 import Button from "@components/button/Button";
+import GoogleOAuthButton from "./Google";
 
 interface LoginResponse {
   status: number;
@@ -41,10 +42,7 @@ const Login: React.FC = () => {
 
   return (
     <div>
-      <h1>Login</h1>
-      {error && <p>{error}</p>}
-
-      <Button onClick={handleLogin}>Login</Button>
+      <GoogleOAuthButton />
     </div>
   );
 };
