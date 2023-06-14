@@ -13,7 +13,6 @@ interface LoginResponse {
 }
 
 const Login: React.FC = () => {
-  alert(import.meta.env.VITE_APP_PROJECT);
   const navigate = useNavigate();
   const { setAuth } = useAuth();
   const [email, setEmail] = useState("");
