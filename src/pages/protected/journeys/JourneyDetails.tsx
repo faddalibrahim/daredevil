@@ -9,7 +9,6 @@ type JourneyDetailsProps = {};
 const JourneyDetails: React.FC<JourneyDetailsProps> = () => {
   const location = useLocation();
   const journey = location.state?.journey as Journey;
-  console.log(location.state);
 
   const passedDares = journey?.journey_freaks.filter(
     (freak) => freak.milestone === "passed"
