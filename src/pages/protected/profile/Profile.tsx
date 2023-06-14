@@ -3,8 +3,9 @@ import ProfileStyles from "./Profile.module.css";
 import defaultProfilePic from "@assets/images/default-profile-pic.png";
 
 const Profile = () => {
+  
   const { auth } = useAuth();
-  console.log(auth);
+
   return (
     <div className={ProfileStyles.profile}>
       <div className={ProfileStyles.profile_picture}>
