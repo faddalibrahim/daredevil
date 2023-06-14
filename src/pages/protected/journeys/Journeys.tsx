@@ -2,7 +2,7 @@ import React from "react";
 import JourneysStyles from "./Journeys.module.css";
 import useAuth from "@hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import { Journey } from "./types";
+import { Journey } from "@types/UserType";
 import CircularProgressBar from "@components/progress_bar/circular_progress_bar/CircularProgressBar";
 
 type JourneysProps = {};

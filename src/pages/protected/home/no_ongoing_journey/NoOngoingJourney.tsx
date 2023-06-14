@@ -5,9 +5,15 @@ import Cover from "@assets/images/man-standing-with-hands-in-pockets.png";
 import NoOngoingJourneyStyles from "./NoOngoingJourney.module.css";
 
 import { useNavigate } from "react-router-dom";
+import useAuth from "@hooks/useAuth";
 
 const NoDareJourney = () => {
+
+  const {auth} = useAuth()
+  
   const navigate = useNavigate();
+
+
   const buttonStyle = {
     marginBottom: "1rem",
   };
@@ -20,7 +26,7 @@ const NoDareJourney = () => {
       <div className={NoOngoingJourneyStyles.home__wrapper}>
         <section className={NoOngoingJourneyStyles.home__wrapper__text}>
           <h2>
-            Welcome, <span>Fred</span>
+            Welcome, <span>{auth.name}</span>
           </h2>
           <p>
             umm, it seems you haven't created a{" "}
