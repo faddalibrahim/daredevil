@@ -23,6 +23,8 @@ export const CircularProgressBar = ({
   const radius = centerX - 10;
   const circumference = Math.ceil(2 * Math.PI * radius);
 
+  const offset = Math.ceil(circumference * (1 - chunk / total));
+
   return (
     <div className={circularProgressBarStyles.wrapper}>
       <svg width={canvasWidth} height={canvasHeight}>
@@ -32,8 +34,9 @@ export const CircularProgressBar = ({
           cy={centerY}
           r={radius}
           strokeDasharray={circumference}
-          strokeDashoffset={Math.ceil(circumference * (1 - chunk / total))}
+          strokeDashoffset={offset}
           stroke={arcColor}
+          style={{ "--stroke-dashoffset": offset, "--from": circumference }}
         />
       </svg>
       <center>{label}</center>

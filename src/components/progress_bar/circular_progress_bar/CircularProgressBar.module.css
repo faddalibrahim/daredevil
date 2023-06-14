@@ -7,7 +7,16 @@
   stroke-width: 6px;
 }
 .wrapper svg circle:last-child {
-  transition: all 0.5s linear;
+  animation: load 1s ease-in-out forwards;
+}
+
+@keyframes load {
+  0% {
+    stroke-dashoffset: var(--from);
+  }
+  100% {
+    stroke-dashoffset: var(--stroke-dashoffset);
+  }
 }
 
 .wrapper p {

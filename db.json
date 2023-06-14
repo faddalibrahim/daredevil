@@ -15,12 +15,14 @@
           "milestone": "completed",
           "journey_freaks": [
             {
+              "name": "Freak 111",
               "id": 1,
               "freak_id": 1,
               "milestone": "passed",
               "rating": 5
             },
             {
+              "name": "Freak 11",
               "id": 2,
               "freak_id": 2,
               "milestone": "aborted",
@@ -39,12 +41,14 @@
           "milestone": "completed",
           "journey_freaks": [
             {
+              "name": "Freak 0",
               "id": 1,
               "freak_id": 1,
               "milestone": "passed",
               "rating": 5
             },
             {
+              "name": "Freak 00",
               "id": 2,
               "freak_id": 2,
               "milestone": "aborted",
@@ -62,6 +66,7 @@
           "milestone": "abandoned",
           "journey_freaks": [
             {
+              "name": "Freak 45",
               "id": 3,
               "freak_id": 3,
               "milestone": "missed"
@@ -78,6 +83,7 @@
           "milestone": "abandoned",
           "journey_freaks": [
             {
+              "name": "Freak 34",
               "id": 3,
               "freak_id": 3,
               "milestone": "missed"
@@ -94,6 +100,7 @@
           "milestone": "abandoned",
           "journey_freaks": [
             {
+              "name": "Freak 3",
               "id": 3,
               "freak_id": 3,
               "milestone": "missed"
