@@ -1,7 +1,6 @@
-import React, {useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import axios, { AxiosResponse } from "axios";
-
 
 import useAuth from "@hooks/useAuth";
 import { API_URL } from "@utils/constants";
@@ -14,8 +13,9 @@ interface LoginResponse {
 }
 
 const Login: React.FC = () => {
+  alert(import.meta.env.VITE_APP_PROJECT);
   const navigate = useNavigate();
-  const { setAuth } = useAuth()
+  const { setAuth } = useAuth();
   const [email, setEmail] = useState("");
 
   const [error, setError] = useState("");
@@ -23,16 +23,18 @@ const Login: React.FC = () => {
   // TO REPLACE WITH GOOGLE OAUTH CLIENT LOGIC
   const handleLogin = async () => {
     try {
-      const response: AxiosResponse<LoginResponse> = await axios.get(`${API_URL}/users/1`, {
-        email,
-      });
+      const response: AxiosResponse<LoginResponse> = await axios.get(
+        `${API_URL}/users/1`,
+        {
+          email,
+        }
+      );
 
       if (response.status === 200) {
         const userData = response.data;
-        console.log(userData)
+        console.log(userData);
         setAuth(userData);
         navigate("/dashboard/home");
-
       } else {
         setError("Invalid email");
       }
@@ -45,8 +47,6 @@ const Login: React.FC = () => {
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
-
-
 
   return (
     <div>
