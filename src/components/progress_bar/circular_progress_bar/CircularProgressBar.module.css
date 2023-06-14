@@ -1,0 +1,19 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper svg circle {
+  fill: transparent;
+  stroke-width: 6px;
+}
+.wrapper svg circle:last-child {
+  transition: all 0.5s linear;
+}
+
+.wrapper p {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-45%, -45%);
+  font-size: 150%;
+}
