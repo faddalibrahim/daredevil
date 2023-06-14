@@ -12,6 +12,7 @@ import NavbarStyles from "./Navbar.module.css";
 import { PAGES, EXTRA_MENU } from "./pages";
 const Navbar = () => {
   const [toggleClass, setToggleClass] = useState("extra__menu");
+  const [currentPageName, setCurrentPage] = useState("home");
   const toggleExtraMenu = () => {
     toggleClass === "extra__menu"
       ? setToggleClass("extra__menu__float")
@@ -24,7 +25,19 @@ const Navbar = () => {
       </div>
       <div className={NavbarStyles.navbar__menu}>
         {PAGES.map((page, index) => (
-          <div className={NavbarStyles.navbar__menu__item} key={index}>
+          <div
+            key={index}
+            className={
+              NavbarStyles[
+                `${
+                  page.name === currentPageName
+                    ? "navbar__menu__item__active"
+                    : "navbar__menu__item"
+                }`
+              ]
+            }
+            onClick={() => setCurrentPage(page.name)}
+          >
             {index == PAGES.length - 1 ? (
               <NavLink
                 to={page.path}
@@ -55,7 +68,19 @@ const Navbar = () => {
       </div>
       <div className={NavbarStyles[toggleClass]}>
         {EXTRA_MENU.map((page, index) => (
-          <div className={NavbarStyles.navbar__menu__item} key={index}>
+          <div
+            className={
+              NavbarStyles[
+                `${
+                  page.name === currentPageName
+                    ? "navbar__menu__item__active"
+                    : "navbar__menu__item"
+                }`
+              ]
+            }
+            onClick={() => setCurrentPage(page.name)}
+            key={index}
+          >
             <NavLink to={page.path}>
               <div className={NavbarStyles.navbar__menu__item__icon}>
                 {page.icon}
