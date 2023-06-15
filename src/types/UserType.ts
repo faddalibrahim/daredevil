@@ -1,8 +1,13 @@
+type AuthObject = {
+  user: User
+  journeys?: Journey 
+  darepool?: Darepool
+}
+
 type User = {
     id: string;
     name: string;
     email: string;
-    journeys: Journey[];
     joined_at: Date;
   };
   

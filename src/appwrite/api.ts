@@ -1,4 +1,4 @@
-import { Client, Account,Permission,User, Role, Databases, ID } from "appwrite";
+import { Client, Account, Databases, ID, Permission, Query, Role } from "appwrite";
 import APPWRITE_SERVER from "./server";
 
 const AW_API = {
@@ -16,14 +16,34 @@ const AW_API = {
     return new Account(this.init()).get();
   },
 
+  createDaredevilAccount(username: string, email: string, password: string) {
+    return new Account(this.init()).create(
+      ID.unique(),
+      email,
+      password,
+      username
+    );
+  },
+
+  loginDaredevilAccount(email: string, password: string) {
+    return new Account(this.init()).createEmailSession(email, password);
+  },
+
   createJourney(journey: any) {
     return new Databases(this.init()).createDocument(
       APPWRITE_SERVER.databaseId,
       APPWRITE_SERVER.journeysCollectionId,
       ID.unique(),
-      journey, 
-      [Permission.read(Role.any()), Permission.write(Role.any()), Permission.update(Role.any())]
+      journey,
+      [
+        Permission.read(Role.any()), // Anyone can view this document
+        Permission.write(Role.any()), // Anyone can view this document
+      ]
     );
+  },
+
+  createSessionAnonymous() {
+    return new Account(this.init()).createAnonymousSession();
   },
 
   createDare(dare: any) {
@@ -37,19 +57,15 @@ const AW_API = {
   },
 
 
-  getUserData(): Promise<User> {
-    return new Promise((resolve, reject) => {
-      const account = new Account(this.init());
-
-      account.get()
-        .then((response:User) => {
-          resolve(response);
-        })
-        .catch((error:Error) => {
-          reject(error);
-        });
-    });
+  getUserJourneys(userId: string) {
+    return new Databases(this.init()).listDocuments(
+      APPWRITE_SERVER.databaseId,
+      APPWRITE_SERVER.journeysCollectionId,
+      [Query.equal("userId", userId)]
+    );
   },
+
+
 };
 
 export default AW_API;

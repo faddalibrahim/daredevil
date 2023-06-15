@@ -2,16 +2,18 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { HOMEPAGE } from "@utils/routes";
 import { AppFrame } from "@components/app_frame/AppFrame";
+import useAuth from "@hooks/useAuth";
+import { LOGIN } from "@utils/routes";
 
 const Protected = () => {
-  const auth = true;
+  const {auth} = useAuth()
   const location = useLocation();
-  return auth ? (
+  return auth?.user ? (
     <AppFrame>
       <Outlet />
     </AppFrame>
   ) : (
-    <Navigate to={HOMEPAGE} state={{ from: location }} replace />
+    <Navigate to={`/${LOGIN}`} state={{ from: location }} replace />
   );
 };
 

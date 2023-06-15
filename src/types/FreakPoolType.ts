@@ -1,6 +1,6 @@
-type FreakPool = Freak[];
+type Darepool = Dare[];
 
-type Freak = {
+type Dare = {
   id: string;
   short_name: string;
   description: string;

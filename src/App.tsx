@@ -33,10 +33,12 @@ import {
   CHALLENGE,
   LOGIN,
   JOURNEYDETAILS,
+  REGISTER
 } from "@utils/routes";
 
 import { AuthProvider } from "@contexts/AuthContext";
 import CustomChallenge from "./pages/protected/custom_challenge/CustomChallenge";
+import Register from "@pages/auth/register/Register";
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
           <Routes>
             <Route path={HOMEPAGE} element={<Homepage />} />
             <Route path={LOGIN} element={<Login />} />
+            <Route path={REGISTER} element={<Register />} />
             <Route path={DASHBOARD} element={<Protected />}>
               <Route path={HOME} element={<Home />} />
               <Route path={JOURNEYS} element={<Journeys />} />

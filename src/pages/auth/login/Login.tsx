@@ -1,9 +1,11 @@
 
 import React, { useState, ChangeEvent } from "react";
 // import GoogleOAuthButton from "./Google";
-// import AW_API from '@appwrite/api';
+import AW_API from '@appwrite/api';
 import Button from "@components/button/Button";
 import Input from "@components/input/Input";
+import { useNavigate } from "react-router-dom";
+import useAuth from "@hooks/useAuth";
 
 interface FormData {
   username: string;
@@ -12,6 +14,9 @@ interface FormData {
 }
 
 const Login: React.FC = () => {
+  const navigate = useNavigate()
+  const {setAuth} = useAuth()
+
   const [formData, setFormData] = useState<FormData>({
     username: "",
     email: "",
@@ -26,8 +31,23 @@ const Login: React.FC = () => {
     }));
   };
 
-  const handleSubmit = () => {
-  
+  const handleSubmit = async() => {
+    try {
+      const res:any =  await AW_API.loginDaredevilAccount(formData.email, formData.password)
+      console.log(res);
+      
+      const account = await AW_API.getAccount()
+
+      console.log(account);
+      
+      if(res.current){
+        setAuth({user:{id:account.id, name:account.name, email:account.email, joined_at:account.createdAt}})
+        navigate('/dashboard/home')
+      }
+      
+    } catch (error) {
+      
+    }
     console.log("Form Data:", formData);
 
   };
@@ -35,13 +55,7 @@ const Login: React.FC = () => {
   return (
     <div>
       {/* <GoogleOAuthButton /> */}
-      <Input
-        name="username"
-        value={formData.username}
-        onChange={handleInputChange}
-      >
-        Username
-      </Input>
+     
       <Input
         name="email"
         value={formData.email}
