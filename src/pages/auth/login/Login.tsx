@@ -4,7 +4,6 @@ import axios, { AxiosResponse } from "axios";
 
 import useAuth from "@hooks/useAuth";
 import { API_URL } from "@utils/constants";
-import Input from "@components/input/Input";
 import Button from "@components/button/Button";
 import AW_API from "../../../appwrite/api";
 
@@ -14,65 +13,9 @@ interface LoginResponse {
 }
 
 const Login: React.FC = () => {
-  const navigate = useNavigate();
-  const { setAuth } = useAuth();
-  const [email, setEmail] = useState("");
-
-  const [error, setError] = useState("");
-
-  // TO REPLACE WITH GOOGLE OAUTH CLIENT LOGIC
-  const handleLogin = async () => {
-    try {
-      const response: AxiosResponse<LoginResponse> = await axios.get(
-        `${API_URL}/users/1`,
-        {
-          email,
-        }
-      );
-
-      if (response.status === 200) {
-        const userData = response.data;
-        console.log(userData);
-        setAuth(userData);
-        navigate("/dashboard/home");
-      } else {
-        setError("Invalid email");
-      }
-    } catch (error) {
-      setError("An error occurred during login");
-      console.error(error);
-    }
-  };
-
-  const createDareTest = async () => {
-    try {
-      // const r = await AW_API.createSessionAnonymous();
-      // console.log(r);
-
-      const res = await AW_API.getAccount();
-
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-
   return (
     <div>
       <h1>Login</h1>
-      {error && <p>{error}</p>}
-      {/* <Input
-        type="text"
-        placeholder="Email"
-        value={email}
-        onChange={handleEmailChange}
-      /> */}
-
-      <Button onClick={createDareTest}>Login</Button>
     </div>
   );
 };
