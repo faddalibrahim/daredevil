@@ -1,47 +1,62 @@
-import React, {useState} from "react";
-import { useNavigate } from "react-router-dom";
-import axios, { AxiosResponse } from "axios";
 
+import React, { useState, ChangeEvent } from "react";
+// import GoogleOAuthButton from "./Google";
+// import AW_API from '@appwrite/api';
+import Button from "@components/button/Button";
+import Input from "@components/input/Input";
 
-import useAuth from "@hooks/useAuth";
-import { API_URL } from "@utils/constants";
-import GoogleOAuthButton from "./Google";
-
-interface LoginResponse {
-  status: number;
-  data: User;
+interface FormData {
+  username: string;
+  email: string;
+  password: string;
 }
 
 const Login: React.FC = () => {
-  const navigate = useNavigate();
-  const { setAuth } = useAuth()
+  const [formData, setFormData] = useState<FormData>({
+    username: "",
+    email: "",
+    password: "",
+  });
 
-  const [error, setError] = useState("");
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
-  // TO REPLACE WITH GOOGLE OAUTH CLIENT LOGIC
-  const handleLogin = async () => {
-    try {
-      const response: AxiosResponse<LoginResponse> = await axios.get(`${API_URL}/users/1`, {
-      });
+  const handleSubmit = () => {
+  
+    console.log("Form Data:", formData);
 
-      if (response.status === 200) {
-        const userData = response.data;
-        console.log(userData)
-        setAuth(userData);
-        navigate("/dashboard/home");
-
-      } else {
-        setError("Invalid email");
-      }
-    } catch (error) {
-      setError("An error occurred during login");
-      console.error(error);
-    }
   };
 
   return (
     <div>
-      <GoogleOAuthButton />
+      {/* <GoogleOAuthButton /> */}
+      <Input
+        name="username"
+        value={formData.username}
+        onChange={handleInputChange}
+      >
+        Username
+      </Input>
+      <Input
+        name="email"
+        value={formData.email}
+        onChange={handleInputChange}
+      >
+        Email
+      </Input>
+      <Input
+        name="password"
+        value={formData.password}
+        onChange={handleInputChange}
+      >
+        Password
+      </Input>
+      <Button onClick={handleSubmit}>Login</Button>
     </div>
   );
 };

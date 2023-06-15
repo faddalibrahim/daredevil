@@ -1,4 +1,4 @@
-import { Account } from 'appwrite';
+import { Account, User } from 'appwrite';
 
 interface UserInfo {
   id: string;
@@ -10,20 +10,22 @@ interface UserInfo {
 export const getAuthenticatedUser = (): Promise<UserInfo> => {
   return new Promise((resolve, reject) => {
     const account = new Account();
-    
+
     account.get()
-      .then((response) => {
+      .then((response: User) => {
         const user: UserInfo = {
           id: response.$id,
           name: response.name,
           email: response.email,
           // Additional user properties
         };
-        
+
         resolve(user);
       })
-      .catch((error) => {
+      .catch((error:Error) => {
         reject(error);
       });
   });
 };
+
+
