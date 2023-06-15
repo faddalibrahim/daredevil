@@ -6,20 +6,24 @@ import StageThree from "./stages/StageThree";
 import StageTwo from "./stages/StageTwo";
 import StageFour from "./stages/StageFour";
 
+
 import CreateDareJourneyStyles from "./CreateDareJourney.module.css";
+import AW_API from "@appwrite/api";
 
 const CreateDareJourney: React.FC = () => {
   const [stage, setStage] = useState<number>(1);
   const [formData, setFormData] = useState<any>({});
 
-  const handleSubmit = (data: any): void => {
+  const handleSubmit = async (data: any) => {
     setFormData((prevData:any) => ({ ...prevData, [stage]: data }));
 
     if (stage < 3) {
       setStage((prevStage) => prevStage + 1);
     } else {
-      // Make API request to post formData
-      console.log("Posting data to API:", formData);
+      console.log("Posting data to db:", formData);
+      // const res = await AW_API.createJourney(formData)
+      // console.log(res);
+      
     }
   };
 

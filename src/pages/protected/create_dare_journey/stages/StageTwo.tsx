@@ -1,5 +1,4 @@
 import React, { useState, ChangeEvent } from 'react';
-
 import StageStyles from "./Stage.module.css";
 import Cover from "@assets/images/man-smiling-and-holding-smartphone.png";
 import Input from "@components/input/Input";
@@ -23,15 +22,34 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
     setSelectedOption(event.target.value);
   };
 
+  const currentDate = new Date();
+
+  const calculateNextDateTime = (option: string): string => {
+    let nextDate = new Date();
+
+    if (option === 'week') {
+      nextDate.setDate(currentDate.getDate() + 7);
+    } else if (option === 'fortnight') {
+      nextDate.setDate(currentDate.getDate() + 14);
+    } else if (option === 'month') {
+      nextDate.setMonth(currentDate.getMonth() + 1);
+    }
+
+    return nextDate.toISOString();
+  };
+
+
   const radioOptions: RadioOption[] = [
-    { label: "week", value: "week" },
-    { label: "fortnight", value: "fortnight" },
-    { label: "month", value: "month" },
+    { label: "week", value: calculateNextDateTime("week") },
+    { label: "fortnight", value: calculateNextDateTime("fortnight") },
+    { label: "month", value: calculateNextDateTime("month") },
   ];
+
 
   const handleStageTwoSubmit = () => {
     const data = {
-      duration: selectedOption,
+      startDate: currentDate.toISOString(),
+      endDate: selectedOption,
     };
 
     handleSubmit(data);
