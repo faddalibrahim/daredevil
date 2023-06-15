@@ -8,17 +8,15 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "@hooks/useAuth";
 
 interface FormData {
-  username: string;
   email: string;
   password: string;
 }
 
 const Login: React.FC = () => {
   const navigate = useNavigate()
-  const {setAuth} = useAuth()
+  const {auth, setAuth} = useAuth()
 
   const [formData, setFormData] = useState<FormData>({
-    username: "",
     email: "",
     password: "",
   });
@@ -41,7 +39,9 @@ const Login: React.FC = () => {
       console.log(account);
       
       if(res.current){
-        setAuth({user:{id:account.id, name:account.name, email:account.email, joined_at:account.createdAt}})
+        setAuth({user:{id:account.$id, name:account.name, email:account.email, joined_at:account.createdAt}})
+        console.log(auth);
+        
         navigate('/dashboard/home')
       }
       

@@ -9,18 +9,32 @@ const Home = () => {
   const { auth,  setAuth} = useAuth();
   const [journeys, setJourneys] = useState({})
 
-  const getJourneys = () =>{
-    setJourneys(async () => await AW_API.getUserJourneys(auth.user.id));
-    setAuth({...auth, journeys:journeys})
-  }
+  const getJourneys = async () => {
+    try {
+      const journeys = await AW_API.getUserJourneys(auth.user.id);
+      setJourneys(journeys);
+      setAuth((prevAuth:AuthObject) => ({
+        ...prevAuth,
+        journeys: journeys,
+      }));
+      console.log(journeys);
+    } catch (error) {
+      // Handle error
+      console.error(error);
+      
+    }
+  };
+  
   
   useEffect(() => {
     getJourneys()
+    console.log('home:', auth);
+    
   }, [journeys])
   
 
   // Check if there is at least one ongoing journey
-  const hasOngoingJourney = auth?.journeys?.some(
+  const hasOngoingJourney = auth?.journeys?.documents.some(
     (journey:Journey) => journey.milestone !== "completed" && journey.milestone !== "abandoned"
   );
 
