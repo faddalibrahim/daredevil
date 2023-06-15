@@ -5,6 +5,7 @@ import axios, { AxiosResponse } from "axios";
 import useAuth from "@hooks/useAuth";
 import { API_URL } from "@utils/constants";
 import Button from "@components/button/Button";
+import AW_API from "../../../appwrite/api";
 
 interface LoginResponse {
   status: number;
@@ -12,13 +13,9 @@ interface LoginResponse {
 }
 
 const Login: React.FC = () => {
- 
   return (
     <div>
       <h1>Login</h1>
-      {error && <p>{error}</p>}
-
-      <Button onClick={handleLogin}>Login</Button>
     </div>
   );
 };
