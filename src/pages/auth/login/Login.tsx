@@ -6,6 +6,7 @@ import useAuth from "@hooks/useAuth";
 import { API_URL } from "@utils/constants";
 import Input from "@components/input/Input";
 import Button from "@components/button/Button";
+import AW_API from "../../../appwrite/api";
 
 interface LoginResponse {
   status: number;
@@ -43,6 +44,19 @@ const Login: React.FC = () => {
     }
   };
 
+  const createDareTest = async () => {
+    try {
+      // const r = await AW_API.createSessionAnonymous();
+      // console.log(r);
+
+      const res = await AW_API.getAccount();
+
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
@@ -58,7 +72,7 @@ const Login: React.FC = () => {
         onChange={handleEmailChange}
       /> */}
 
-      <Button onClick={handleLogin}>Login</Button>
+      <Button onClick={createDareTest}>Login</Button>
     </div>
   );
 };

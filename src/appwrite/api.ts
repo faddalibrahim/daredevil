@@ -1,4 +1,4 @@
-import { Client, Account, Databases, ID } from "appwrite";
+import { Client, Account, Databases, ID, Permission, Role } from "appwrite";
 import APPWRITE_SERVER from "./server";
 
 const AW_API = {
@@ -16,13 +16,34 @@ const AW_API = {
     return new Account(this.init()).get();
   },
 
+  createDaredevilAccount(username: string, email: string, password: string) {
+    return new Account(this.init()).create(
+      ID.unique(),
+      email,
+      password,
+      username
+    );
+  },
+
+  loginDaredevilAccount(email: string, password: string) {
+    return new Account(this.init()).createEmailSession(email, password);
+  },
+
   createJourney(journey: any) {
     return new Databases(this.init()).createDocument(
       APPWRITE_SERVER.databaseId,
       APPWRITE_SERVER.journeysCollectionId,
       ID.unique(),
-      journey
+      journey,
+      [
+        Permission.read(Role.any()), // Anyone can view this document
+        Permission.write(Role.any()), // Anyone can view this document
+      ]
     );
+  },
+
+  createSessionAnonymous() {
+    return new Account(this.init()).createAnonymousSession();
   },
 
   createDare(dare: any) {
