@@ -9,10 +9,12 @@ import StageFour from "./stages/StageFour";
 
 import CreateDareJourneyStyles from "./CreateDareJourney.module.css";
 import AW_API from "@appwrite/api";
+import useAuth from "@hooks/useAuth";
 
 const CreateDareJourney: React.FC = () => {
   const [stage, setStage] = useState<number>(1);
   const [formData, setFormData] = useState<any>({});
+  const {auth} = useAuth()
 
   const handleSubmit = async (data: any) => {
     setFormData((prevData:any) => ({ ...prevData, [stage]: data }));
@@ -21,9 +23,17 @@ const CreateDareJourney: React.FC = () => {
       setStage((prevStage) => prevStage + 1);
     } else {
       console.log("Posting data to db:", formData);
-      // const res = await AW_API.createJourney(formData)
-      // console.log(res);
-      
+      const journey = {
+          name:formData[1].name,
+          dares:  ['Make money for fun', 'Drive to the Make it', 'Dive into it'],  //replace with the selected dares from the darepool
+          endDate : formData[2].endDate,
+          milestone :  "ongoing", 
+          startDate : formData[2].startDate,
+          swapsMade : 0,
+          userId : auth.user.id
+      }
+      const res = await AW_API.createJourney(journey)
+      console.log("response" ,res);
     }
   };
 
