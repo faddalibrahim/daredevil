@@ -1,10 +1,10 @@
 import React, { useState, ChangeEvent } from 'react';
-import Cover from '@assets/images/man-smiling-and-holding-smartphone.png';
-import StageStyles from './Stage.module.css';
-import Input from '@components/input/Input';
-import Button from '@components/button/Button';
-import GoBack from './GoBack';
 
+import StageStyles from "./Stage.module.css";
+import Cover from "@assets/images/man-smiling-and-holding-smartphone.png";
+import Input from "@components/input/Input";
+import Button from "@components/button/Button";
+import GoBack from "./GoBack";
 
 interface RadioOption {
   label: string;
@@ -12,14 +12,12 @@ interface RadioOption {
 }
 
 interface StageTwoProps {
-  handleSubmit: () => void;
+  handleSubmit: (data: any) => void;
   handleGoBack: () => void;
-
 }
 
 const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
-  const [selectedOption, setSelectedOption] = useState<string>('');
-
+  const [selectedOption, setSelectedOption] = useState<string>("");
 
   const handleOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(event.target.value);
@@ -31,11 +29,18 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
     { label: "month", value: "month" },
   ];
 
+  const handleStageTwoSubmit = () => {
+    const data = {
+      duration: selectedOption,
+    };
+
+    handleSubmit(data);
+  };
 
   return (
     <div className={StageStyles.container}>
       <div className={StageStyles.textColumn}>
-      <GoBack handleGoBack={handleGoBack} />
+        <GoBack handleGoBack={handleGoBack} />
         <h2>How long do you wanna go at it?</h2>
         <br />
         <div className={StageStyles.radio_button}>
@@ -52,7 +57,7 @@ const StageTwo: React.FC<StageTwoProps> = ({ handleSubmit, handleGoBack }) => {
           ))}
         </div>
         <br />
-        <Button onClick={handleSubmit}>Next</Button>
+        <Button onClick={handleStageTwoSubmit}>Next</Button>
       </div>
 
       <div className={StageStyles.imageColumn}>

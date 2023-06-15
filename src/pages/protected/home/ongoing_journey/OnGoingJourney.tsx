@@ -12,7 +12,7 @@ const OnGoingJourney = () => {
   const { auth } = useAuth();
   // Filter journeys based on the current date
   const currentDate = new Date().toISOString().split("T")[0];
-  const currentJourneys = auth.journeys.filter((journey: Journey) => journey.start_date === currentDate);
+  const currentJourneys = auth.journeys.documents.filter((journey: Journey) => journey.start_date === currentDate);
 
   // Compute metrics for each current journey
   const metrics: JourneyMetricsType[] = currentJourneys.map((journey: Journey) => {

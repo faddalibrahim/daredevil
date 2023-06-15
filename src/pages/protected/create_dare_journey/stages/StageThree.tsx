@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 // Component
-import RoundButton from '@components/round_button/RoundButton';
 import ProgressBar from '@components/progress_bar/ProgressBar';
 import ChallengeBox from '@components/challenge_box/ChallengeBox';
+import GoBack from "./GoBack";
+import Button from "@components/button/Button";
 
 
 //Styles
 import StageStyles from "./Stage.module.css";
-import GoBack from "./GoBack";
 
 interface StageThreeProps {
     handleSubmit: () => void;
@@ -36,7 +36,7 @@ const StageThree: React.FC<StageThreeProps> = ({ handleSubmit, handleGoBack }) =
                     </div>
                 </div>
                 <div className={StageStyles.wrapper__roundButton}>
-                    <RoundButton onClick={handleSubmit} children={<a title='add'>&#43;</a>} />
+                    <Button onClick={handleSubmit} children={<a title='finish'>Finish</a>} />
                 </div>
             </div>
         </>

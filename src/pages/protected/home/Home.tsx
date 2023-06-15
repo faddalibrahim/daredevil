@@ -30,7 +30,7 @@ const Home = () => {
     getJourneys()
     console.log('home:', auth);
     
-  }, [journeys])
+  }, [])
   
 
   // Check if there is at least one ongoing journey
